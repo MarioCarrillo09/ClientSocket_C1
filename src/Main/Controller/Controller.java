@@ -9,9 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.ObservableFaceArray;
 
 
 import java.io.DataOutputStream;
@@ -23,8 +21,8 @@ import java.util.Observer;
 public class Controller implements  Observer {
     private Socket socket;
     private DataOutputStream bufferDeSalida = null;
-    private String[] diccionario = {"ABEJA","OSO", "BANANO","PLATANO", "PERRO",  "LOBO","MOSCA","PINGUINO", "ELEFANTE",
-            "GATO", "SAPO", "JIRAFA", "COCODRILO","TORTUGA","CABALLO", "LEON", "TIGRE"};
+    private String[] diccionario = {"SUPERMAN", "BATMAN", "ROBIN", "WONDERWOMAN", "JOKER", "FLASH", "BLUEBEETLE",
+    "FIRESTORM", "REDHAT", "AQUAMAN", "REDHOOD", "DARKSEID", "GREENLANTERN", "BRAINIAC", "DEATHSTROKE", "BLACKMANTA", "GREENARROW"};
     char[] palabra_secreta;
     private Ahorcado ahorcado;
     @FXML
@@ -133,7 +131,7 @@ public class Controller implements  Observer {
     }
     void verificarGano(){
         if(ahorcado.isWordFound()== true){
-            labelWin.setText("FELIICIDADES, GANASTE ERES TODO UN CRACK");
+            labelWin.setText("HAS ACERTADO");
             try {
                 bufferDeSalida.writeUTF("El Cliente ha acertado la palabra");
                 bufferDeSalida.flush();
@@ -142,9 +140,9 @@ public class Controller implements  Observer {
                 e.printStackTrace();
             }
         }else{
-            labelWin.setText("MAS SUERTE A LA PROXIMA :((");
+            labelWin.setText("NO HAS ACERTADO");
             try {
-                bufferDeSalida.writeUTF("El Cliente ha perdido");
+                bufferDeSalida.writeUTF("El Cliente no ha acertado la palabra");
                 bufferDeSalida.flush();
 
             } catch (IOException e) {

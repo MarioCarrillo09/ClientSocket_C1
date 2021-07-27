@@ -1,3 +1,11 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+# Datasource local storage ignored files
+/../../../../../../../:\Users\Usuario\Desktop\Programacion_Cliente_Servidor\ClientSocket\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+
+# Dependency directories
+node_modules/

@@ -1,7 +1,4 @@
-
 package Main.Model;
-
-import javafx.scene.control.TextArea;
 
 import java.io.*;
 import java.net.Socket;
@@ -11,11 +8,11 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ThreadClient extends Observable implements Runnable {
     private Socket socket;
     private DataInputStream bufferDeEntrada = null;
-    private TextArea log;
 
-    public ThreadClient(Socket socket, TextArea log) {
+
+    public ThreadClient(Socket socket) {
         this.socket = socket;
-        this.log = log;
+
     }
 
     public void run() {
@@ -32,7 +29,6 @@ public class ThreadClient extends Observable implements Runnable {
                 }
                 try {
                     st = bufferDeEntrada.readUTF();
-                    log.setText(st);
                     String[] array = st.split(":");
 
                     this.setChanged();
